@@ -2,12 +2,18 @@ import React, { Component } from "react";
 interface State {
   counter: number;
 }
+// +++++use type as parameter+++++
+// type Props = {
+//   title: string;
+//   nama?: string;
+// };
+// +++++use interface as parameter+++++
 interface Props {
   title: string;
   nama?: string;
 }
 export class ClassComp extends Component<Props, State> {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       counter: 0,

@@ -1,11 +1,16 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import ClassComp from "./1-classComponent";
+import ClassComp from "./classComponent";
+import { Card } from "./functionComponent";
+import { DefaultProps } from "./defaultprops/DefaultProps";
 function App() {
   return (
     <div className="App">
-      <ClassComp nama="ini nama " title="Class Component" />
+      {/* <ClassComp nama="Arjuna" title="Belajar Class Component" />
+      <Card
+        title={"Belajar Function Component"}
+        paragraph={"Menggunakan Typescript"}
+      /> */}
+      <DefaultProps />
     </div>
   );
 }
