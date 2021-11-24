@@ -6,8 +6,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <UseStateComponent />
-      <UseEffectComponent />
+      {/* <UseStateComponent /> */}
+      {/* <UseEffectComponent /> */}
       <CustomComponent />
     </div>
   );
