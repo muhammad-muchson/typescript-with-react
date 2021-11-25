@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 
-export interface Beverage {
+export interface Data {
   name: string;
   logo: string;
 }
 
-function useFetchData<Payload>(url: string): {
-  data: Payload | null;
+function useFetchData(url: string): {
+  data: Data[] | null;
   done: boolean;
 } {
-  const [data, dataSet] = useState<Payload | null>(null);
+  const [data, dataSet] = useState<Data[] | null>(null);
   const [done, doneSet] = useState(false);
 
   useEffect(() => {
     fetch(url)
       .then((resp) => resp.json())
-      .then((d: Payload) => {
+      .then((d: Data[]) => {
         dataSet(d);
         doneSet(true);
       });
@@ -28,8 +28,7 @@ function useFetchData<Payload>(url: string): {
 }
 
 function CustomHookComponent() {
-  const { data, done } = useFetchData<Beverage[]>("/alterra.json");
-
+  const { data, done } = useFetchData("/alterra.json");
   return <div>{done && <img src={data![0].logo} alt="Alterra logo" />}</div>;
 }
 
