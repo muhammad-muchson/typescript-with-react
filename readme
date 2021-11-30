@@ -1,0 +1,4 @@
+ install : npm install --save-dev typescript
+ render : node namafile.ts
+ render ts file : ts-node namafile.js
+ render js file : node namafile.js
