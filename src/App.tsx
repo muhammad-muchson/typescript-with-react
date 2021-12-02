@@ -7,8 +7,7 @@ interface ITodo {
   complete: boolean;
 }
 
-//JSX.Element: TS custom definition
-function App(): JSX.Element {
+function App(){
   const [value, setValue] = useState<string>('');
   const [todos, setTodos] = useState<ITodo[]>([]);
   // debugger;
@@ -20,7 +19,7 @@ function App(): JSX.Element {
   };
 
   const addTodo = (text: string): void => {
-    const newTodos: ITodo[] = [...todos, { text, complete: false }];
+    const newTodos: ITodo[] = [...todos, { text, complete: false}];
     setTodos(newTodos);
   };
   console.log(todos);
@@ -40,7 +39,7 @@ function App(): JSX.Element {
   };
 
   return (
-    <Fragment>
+    <>
       <h1>Todo List</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -52,9 +51,9 @@ function App(): JSX.Element {
         <button type='submit'>Add Todo</button>
       </form>
       <section>
-        {todos.map((todo: ITodo, index: number) => {
-          return (
-            <Fragment key={index}>
+        {todos.map((todo: ITodo, index: number) => 
+           (
+            <>
               <div
                 style={{ textDecoration: todo.complete ? 'line-through' : '' }}
               >
@@ -66,11 +65,12 @@ function App(): JSX.Element {
               <button type='button' onClick={(): void => deleteTodo(index)}>
                 &times;
               </button>
-            </Fragment>
-          );
-        })}
+            </>
+          )
+        )}
       </section>
-    </Fragment>
+    </>
+
   );
 }
 export default App;
